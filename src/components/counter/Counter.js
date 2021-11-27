@@ -4,16 +4,17 @@ import styles from './counter.module.css';
 
 Counter.propTypes = {
 	min: PropTypes.number,
-	max: PropTypes.number.isRequired,
+	max: PropTypes.number,
 	current: PropTypes.number.isRequired,
 	onChange: PropTypes.func.isRequired
 }
 
 Counter.defaultProps = {
-	min: 1
+	min: 1,
+	max: 100
 }
 
-function Counter({ min, max, current, onChange }){
+function Counter({ min, max, current, onChange }){ 
 	let inp = useRef();
 	let updInp = num => inp.current.value = num;
 
@@ -36,11 +37,11 @@ function Counter({ min, max, current, onChange }){
 	
 	useEffect(() => updInp(current), [current]);
 
-	return <div>
-		<button className="" type="button" onClick={dec} disabled={current <= min}>-</button>&nbsp;
-		<input ref={inp} defaultValue={current} onBlur={applyStrValue} className={styles.input} />&nbsp;
-		<button className="" type="button" onClick={inc} disabled={current >= max}>+</button>
-	</div>
+	return <>
+		<button className={styles.row_controls_btn} type="button" onClick={dec} disabled={current <= min}>-</button>&nbsp;
+		<input ref={inp} defaultValue={current} onBlur={applyStrValue} className={styles.row_controls_input} />&nbsp;
+		<button className={styles.row_controls_btn} type="button" onClick={inc} disabled={current >= max}>+</button>
+	</>
 }
 
 export default Counter;
