@@ -11,20 +11,11 @@ function App(){
 	// let { products } = useContext(storesContext);
 
 	return <Router>
-			<h1>Index Page...</h1>
-			<main>
-				<div className="container">
-							{/* <ul className="list-group">
-								<li className="list-group-item">
-									<NavLink to={routesMap.root} activeClassName="" exact>Root</NavLink>
-								</li>
-							</ul> */}
+	
+		<Switch>
+			{ routesComponents }
+		</Switch>
 
-						{/* <Switch>
-							{ routesComponents }
-						</Switch> */}
-				</div>
-			</main>
 	</Router>
 }
 
