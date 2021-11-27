@@ -1,3 +1,20 @@
-.input{
-	width: 30px;
+.row_controls_btn{
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: rgb(117, 204, 124);
+    color: #fff;
+    font-weight: 800;
 }
+
+.row_controls_btn:hover{
+    background-color: rgb(98, 165, 103);
+}
+
+.row_controls_input{
+    height: 40px;
+    width: 90px;
+    text-align: center;
+    margin: 0px 10px;
+}
+
