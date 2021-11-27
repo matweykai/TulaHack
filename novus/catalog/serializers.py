@@ -19,7 +19,8 @@ class CategorySerializer(ModelSerializer):
 class UserSerializer(ModelSerializer):
     class Meta:
         model = Customer
-        fields = '__all__'
+        fields = ['user_token']
+        # extra_kwargs = {'password': {'write_only': True}}
 
 
 class BuySerializer(ModelSerializer):
@@ -30,10 +31,11 @@ class BuySerializer(ModelSerializer):
 
 
 class OrderSerializer(ModelSerializer):
+    customer = UserSerializer()
+
     class Meta:
         model = Order
         fields = '__all__'
-        depth = 2
 
 
 class GoodServiceSerializer(ModelSerializer):

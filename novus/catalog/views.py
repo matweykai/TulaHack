@@ -5,7 +5,7 @@ import hashlib
 from datetime import datetime
 
 from catalog.models import Good, Category, Customer, Order, BuyInfo, GoodService
-from catalog.serializers import GoodSerializer, CategorySerializer, GoodServiceSerializer
+from catalog.serializers import GoodSerializer, CategorySerializer, GoodServiceSerializer, OrderSerializer
 
 
 # checked
@@ -114,7 +114,7 @@ class CartView(ViewSet):
             return Response({'msg': 'Invalid id of product'})
         gs = gs[0]
         if len(buys) == 0:
-            order = Order(status=Order.Status.INPROGRESS, customer=customer[0], date=datetime.now().date())
+            order = Order(status=Order.Status.INPROGRESS, customer=customer[0], date=datetime.now())
             order.save()
         else:
             order = Order.objects.filter(customer__user_token=user_token, status=Order.Status.INPROGRESS).first()
@@ -124,7 +124,7 @@ class CartView(ViewSet):
         serializer = GoodServiceSerializer([buy.gs for buy in buys], many=True)
         return Response(serializer.data)
 
-    def create(self, request):
+    def create(self, request):  # что-то не то
         mode = request.data.get("mode")
         cart = request.data.get("cart")
         if mode is None or cart is None:
@@ -135,5 +135,26 @@ class CartView(ViewSet):
         return Response(result)
 
 
-class History(ViewSet):
-    pass
+class HistoryView(ViewSet):
+    def list(self, request):
+        query_params = self.request.query_params
+        user_token = query_params.get('token')
+        if user_token is None:
+            return Response({'msg': 'None objects'})
+        orders = Order.objects.filter(customer__user_token=user_token, status=Order.Status.DONE)
+        serializer = OrderSerializer(orders, many=True)
+        return Response(serializer.data)
+
+
+class DoneOrderView(ViewSet):
+    def list(self, request):
+        query_params = self.request.query_params
+        user_token = query_params.get('token')
+        if user_token is None:
+            return Response({'msg': 'None objects'})
+        orders = Order.objects.filter(customer__user_token=user_token, status=Order.Status.INPROGRESS)
+        for order in orders:
+            order.status = Order.Status.DONE
+            order.date = datetime.now()
+            order.save()
+        return Response({'msg': 'Success'})  # Возможна замена на status_code
