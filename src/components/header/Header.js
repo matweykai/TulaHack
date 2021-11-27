@@ -11,8 +11,8 @@ function Header(){
 
 		<Logo></Logo>
         <Search></Search>
-        {/* <LoginIcon></LoginIcon>
-        <CartIcon></CartIcon> */}
+        <LoginIcon></LoginIcon>
+        <CartIcon></CartIcon>
 
 	</header>
 }

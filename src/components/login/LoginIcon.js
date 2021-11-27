@@ -1,7 +1,9 @@
 import React from 'react';
-import logo from '@/img/logo.png'
+import logo from '@/img/user.png'
 import styles from './login.module.css';
+import { Link } from 'react-router-dom'
 import { routesMap } from '@/router';
+
 
 function LoginIcon(){
 	return <div className={styles.icon}>
