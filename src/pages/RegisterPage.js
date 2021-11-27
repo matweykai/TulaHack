@@ -5,20 +5,20 @@ import storesContext from '@/contexts/store';
 import { routesMap } from '@/router';
 
 import Header from '@/components/header/Header.js';
-import Form from '@/components/form/Form';
+import Form from '@/components/form/Form.js';
 
-function AutorizationPage(){
+function RegisterPage(){
 	// let { products } = useContext(storesContext); // подключение контекста
 	// let { ... } = cart; // Распаковка методов
 	
 	return <>
 		<Header></Header>
 		<main>
-            <Form text="Вход" btn_text="Войти" reg={false}></Form>
+			<Form text="Регистрация" btn_text="Зарегистрироваться" reg={true}></Form>
 		</main>
 	</>
 }
 
 
 
-export default observer(AutorizationPage);
+export default observer(RegisterPage);
