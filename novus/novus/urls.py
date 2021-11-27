@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework.routers import SimpleRouter
 
-from catalog.views import GoodView, CategoryView, AllGoodsOfCategory
+from catalog.views import GoodView, CategoryView, CartView, RegistrationView, AuthorizationView
 
 router = SimpleRouter()
-router.register('api/goods', GoodView)
-router.register('api/categories', CategoryView)
+router.register('api/goods', GoodView,  basename='goods')
+router.register('api/category', CategoryView, basename='category')
+router.register('api/cart', CartView, basename='cart')
+router.register('api/register', RegistrationView, basename='registration')
+router.register('api/authorize', AuthorizationView, basename='authorization')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
