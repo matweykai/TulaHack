@@ -1,0 +1,32 @@
+.category_menu{
+    background-color: rgb(228, 228, 228);
+    height: 100vh;
+    width: 400px;
+
+}
+
+.category_list{
+    padding-left: 0px;
+    margin: 0px;
+    overflow: auto 
+}
+
+.category_item{
+    list-style-type: none;
+    /* padding: 20px;     */
+}
+
+.category_link{
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 20px 20px 20px 40px;
+    width: 100%;
+    display: block;
+}
+
+.category_item:hover{
+    cursor: pointer;
+    background-color: rgb(194, 194, 194);
+}
