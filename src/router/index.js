@@ -10,21 +10,21 @@ let routes = [
 		path: '/',
 		component: MainPage
 	},
-	// {
-	// 	name: 'cart',
-	// 	path: '/cart',
-	// 	component: CartPage
-	// },
-	// {
-	// 	name: 'auto',
-	// 	path: '/login',
-	// 	component: AutorizationPage
-	// },
-	// {
-	// 	name: 'reg',
-	// 	path: '/regin',
-	// 	component: RegisterPage
-	// },
+	{
+		name: 'cart',
+		path: '/cart',
+		component: CartPage
+	},
+	{
+		name: 'auto',
+		path: '/login',
+		component: AutorizationPage
+	},
+	{
+		name: 'reg',
+		path: '/regin',
+		component: RegisterPage
+	},
 	{
 		path: '**',
 		component: E404
