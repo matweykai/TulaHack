@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
+
 class Service(models.Model):
     service_name = models.CharField(max_length=25)
     delivery_price = models.FloatField()
@@ -15,7 +16,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.category_name
-
+      
 
 class Customer(models.Model):
     login_email = models.CharField(max_length=25)
@@ -56,11 +57,13 @@ class Order(models.Model):
         choices=Status.choices,
         default=Status.INPROGRESS,
     )
+
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     date = models.DateTimeField()
 
     def __str__(self):
         return f'{self.id}. {self.customer} {self.status}'
+
 
 
 class BuyInfo(models.Model):
@@ -70,6 +73,7 @@ class BuyInfo(models.Model):
 
     def __str__(self):
         return f'Товар {self.gs__name} взят в количестве {self.count}'
+
 
 
 
