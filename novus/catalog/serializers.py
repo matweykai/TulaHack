@@ -26,7 +26,7 @@ class UserSerializer(ModelSerializer):
 class BuySerializer(ModelSerializer):
     class Meta:
         model = BuyInfo
-        fields = ['gs', 'count']
+        fields = ['gs', 'count', 'id']
         depth = 2
 
 

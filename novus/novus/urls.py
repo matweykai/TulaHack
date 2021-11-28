@@ -18,7 +18,7 @@ from django.urls import path
 from rest_framework.routers import SimpleRouter
 
 from catalog.views import GoodView, CategoryView, CartView, RegistrationView, AuthorizationView, HistoryView, \
-    DoneOrderView
+    DoneOrderView, CartUpdateView
 
 router = SimpleRouter()
 router.register('api/goods', GoodView, basename='goods')
@@ -28,6 +28,7 @@ router.register('api/register', RegistrationView, basename='registration')
 router.register('api/authorize', AuthorizationView, basename='authorization')
 router.register('api/history', HistoryView, basename='history')
 router.register('api/conf_ord', DoneOrderView, basename='confirm_order')
+router.register('api/cart_update', CartUpdateView, basename='cart_update')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

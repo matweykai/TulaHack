@@ -65,7 +65,6 @@ class Order(models.Model):
         return f'{self.id}. {self.customer} {self.status}'
 
 
-
 class BuyInfo(models.Model):
     gs = models.ForeignKey(GoodService, on_delete=models.CASCADE)
     count = models.IntegerField()
