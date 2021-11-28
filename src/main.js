@@ -16,8 +16,8 @@ let stores = {
 };
 
 // Подтягивание данных с сервера
-stores.products.load();
-stores.cart.load();
+// stores.products.load();
+// stores.cart.load();
 
 ReactDom.render(
 	<storesContext.Provider value={stores}>
