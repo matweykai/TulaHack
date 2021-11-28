@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
+
 
 
 class Service(models.Model):
@@ -14,12 +16,12 @@ class Category(models.Model):
 
     def __str__(self):
         return self.category_name
-
+      
 
 class Customer(models.Model):
     login_email = models.CharField(max_length=25)
-    password = models.CharField(max_length=20)
-    user_token = models.CharField(max_length=20)
+    password = models.CharField(max_length=40)
+    user_token = models.CharField(max_length=40)
 
     def __str__(self):
         return self.login_email
@@ -46,17 +48,34 @@ class GoodService(models.Model):
 
 
 class Order(models.Model):
+    class Status(models.TextChoices):
+        INPROGRESS = 'IN', _('In progress')
+        DONE = 'DN', _('Done')
+
+    status = models.CharField(
+        max_length=2,
+        choices=Status.choices,
+        default=Status.INPROGRESS,
+    )
+
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     date = models.DateTimeField()
 
     def __str__(self):
-        return f'{self.id}. {self.customer}'
+        return f'{self.id}. {self.customer} {self.status}'
+
 
 
 class BuyInfo(models.Model):
     gs = models.ForeignKey(GoodService, on_delete=models.CASCADE)
     count = models.IntegerField()
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Товар {self.gs__name} взят в количестве {self.count}'
+
+
+
 
 
 
