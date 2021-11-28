@@ -8,20 +8,17 @@ import Header from '@/components/header/Header.js';
 import CategoryMenu from '@/components/categoryMenu/CategoryMenu.js';
 import Store from '@/components/store/Store.js';
 
-function MainPage(){
-	// let { products } = useContext(storesContext); // подключение контекста
-	// let { ... } = cart; // Распаковка методов
-	
+function CategoryPage(){	
 	return <>
 
 		<Header></Header>
 		<main style={{ display: 'flex', overflow: 'hidden' }}>
 			<CategoryMenu></CategoryMenu>
-			<Store></Store>
+			<Store type="category"></Store>
 		</main>
 	</>
 }
 
 
 
-export default observer(MainPage);
+export default observer(CategoryPage);

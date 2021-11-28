@@ -43,7 +43,7 @@ function CategoryMenu(){
     let catigories = TEST_DATA.map((item) => {
         return (
         <li key={ item.id } className={styles.category_item}>
-            <Link to={'/category?id=' +  item.id } className={styles.category_link}>{item.name}</Link>
+            <Link to={'/category/id=' +  item.id } className={styles.category_link}>{item.name}</Link>
         </li>
     )});
 

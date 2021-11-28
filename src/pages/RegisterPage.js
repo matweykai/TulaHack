@@ -8,13 +8,16 @@ import Header from '@/components/header/Header.js';
 import Form from '@/components/form/Form.js';
 
 function RegisterPage(){
-	// let { products } = useContext(storesContext); // подключение контекста
-	// let { ... } = cart; // Распаковка методов
+
 	
 	return <>
 		<Header></Header>
 		<main>
-			<Form text="Регистрация" btn_text="Зарегистрироваться" reg={true}></Form>
+			<Form
+			text="Регистрация"
+			btn_text="Зарегистрироваться"
+			reg={true}
+			></Form>
 		</main>
 	</>
 }

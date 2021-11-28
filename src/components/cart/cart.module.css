@@ -71,6 +71,19 @@
     align-self: center;
 }
 
+.row_remove{
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: rgb(204, 117, 117);
+    color: #fff;
+    font-weight: 800;
+    margin-left: 20px;
+}
+.row_remove:hover{
+    background-color: rgb(165, 98, 98);
+    cursor: pointer;
+}
 /* -------- */
 
 .mode{
@@ -102,5 +115,5 @@
 
 .total{
     text-align: center;
-    font-weight: 36px;
+    font-size: 36px;
 }

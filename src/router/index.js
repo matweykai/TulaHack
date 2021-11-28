@@ -3,6 +3,7 @@ import CartPage from '@/pages/CartPage'
 import AutorizationPage from '@/pages/AutorizationPage'
 import RegisterPage from '@/pages/RegisterPage'
 import E404 from '@/pages/E404';
+import CategoryPage from '@/pages/CategoryPage';
 
 let routes = [
 	{
@@ -24,6 +25,11 @@ let routes = [
 		name: 'reg',
 		path: '/regin',
 		component: RegisterPage
+	},
+	{
+		name: 'category',
+		path: '/category/:id',
+		component: CategoryPage
 	},
 	{
 		path: '**',
